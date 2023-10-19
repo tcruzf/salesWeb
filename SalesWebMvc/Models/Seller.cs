@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace SalesWebMvc.Models
 {
@@ -40,5 +41,12 @@ namespace SalesWebMvc.Models
         {
             Sales.Remove(sr);
         }
+
+        public double TotalSales(DateTime initial, DateTime final)
+        {
+            return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Amount);
+        }
+        
+
     }
 }
